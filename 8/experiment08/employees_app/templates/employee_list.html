@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employees</title>
+  </head>
+  <body>
+    <h1>Employees</h1>
+    <form method="get">
+      <label>Minimum Salary</label>
+      <input
+        type="number"
+        name="min_salary"
+        value="{{ request.GET.min_salary }}"
+        placeholder="Minimum Salary"
+      />
+      <label>Maximum Salary</label>
+      <input
+        type="number"
+        name="max_salary"
+        value="{{ request.GET.max_salary }}"
+        placeholder="Maximum Salary"
+      />
+      <button type="submit">Filter</button>
+    </form>
+    <table width="100%" border="1" cellspacing="0">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Salary</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+      {% for employee in employees %}
+      <tr>
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.salary }}</td>
+        <td>{{ employee.department }}</td>
+        <td>
+          <a href="{% url 'employee_update' employee.id %}">Edit</a>
+          <a href="{% url 'employee_delete' employee.id %}">Delete</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No employees found</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <a href="{% url 'employee_create' %}">Create Employee</a>
+  </body>
+</html>

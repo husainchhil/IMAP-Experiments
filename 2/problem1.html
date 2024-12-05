@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Experiment 2</title>
+  </head>
+  <header>
+      <h2 class="text-center text-primary mb-4 display-4">Contact Form</h2>
+  </header>
+  <form id="contactForm">
+    <table border="1">
+        <tbody>
+        <tr>
+            <td>
+                <label>Name :</label>
+                <div class="error" id="nameError"></div>
+            </td>
+            <td><input type="text" maxlength="25" id="name"></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Email :</label>
+                <div class="error" id="emailError"></div>
+            </td>
+            <td><input type="email" maxlength="25" id="email"></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Phone :</label>
+                <div class="error" id="phoneError"></div>
+            </td>
+            <td><input type="number" maxlength="10" id="phone"></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Submit</button></td>
+            <td><button type="reset" onclick="resetForm()">Reset</button></td>
+        </tr>
+    </tbody>
+    </table>
+  </form>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(event){
+        event.preventDefault();
+        document.getElementById('nameError').innerText = '';
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('phoneError').innerText = '';
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+
+        let isValid = true;
+
+        if (name==="" | name.length < 2){
+            document.getElementById('nameError').innerText = 'Please enter a valid name';
+            isValid = false;
+        }
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === '' || !emailPattern.test(email)) {
+            document.getElementById('emailError').innerText = 'Please enter a valid email address.';
+            isValid = false;
+        }
+
+        // Phone number validation
+        const phonePattern = /^\d+$/;
+        if (phone === '' || !phonePattern.test(phone)) {
+            document.getElementById('phoneError').innerText = 'Phone Number must contain only digits.';
+            isValid = false;
+        }
+
+        // If valid, show success message (can be replaced with actual submission logic)
+        if (isValid) {
+            alert('Form submitted successfully!');
+        }
+
+        if(isValid){
+            alert('Form submitted');
+        }
+    });
+
+    function resetForm(){
+        document.getElementById('nameError').innerText = '';
+        document.getElementById('emailError').innerText = '';
+        document.getElementById('phoneError').innerText = '';
+        document.getElementById('name').innerText = '';
+        document.getElementById('email').innerText = '';
+        document.getElementById('phone').innerText = '';
+    }
+  </script>
+  </body>
+</html>

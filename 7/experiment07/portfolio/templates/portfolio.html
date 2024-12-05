@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <script src="{% static 'js/script.js' %}" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <div class="Portfolio">
+      <h1>{{myself.name}}</h1>
+      <h2>{{myself.age}}</h2>
+      <h3>{{myself.education}}</h3>
+      {% for item in items %}
+      <li>{{item}}</li>
+      {% endfor %}
+    </div>
+  </body>
+</html>

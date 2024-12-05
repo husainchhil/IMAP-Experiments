@@ -1,0 +1,17 @@
+table {
+  margin: 20px;
+  width: 50%;
+  border: 1px solid gray;
+  border-collapse: collapse;
+}
+.error {
+  font-size: small;
+  color: red;
+}
+input {
+  width: 100%;
+}
+td {
+  padding: 2%;
+  vertical-align: middle;
+}

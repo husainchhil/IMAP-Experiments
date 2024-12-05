@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  <script src="{% static 'js/script.js' %}" defer></script> 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="Home">
+      <h1>My name is Husain</h1>
+      <p id="greeting">Feel free to explore</p>
+      <button onclick="showGreeting()">Click me for greeting</button><br />
+      <!-- button to redirect to portfolio -->
+      <a href="{% url 'portfolio' %}">Portfolio</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+.RegistrationForm {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 10%;
+}
+input {
+  margin: 5px;
+  width: 100%;
+}
+
+button {
+  margin: 10px;
+}
